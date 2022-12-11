@@ -1,5 +1,7 @@
 import { Title } from "./Title/Title";
 
+import { Feedback } from "./Feedback/Feedback";
+
 export const App = () => {
   return (
     <div
@@ -12,7 +14,8 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      <Title title={"Please Leave Feedback"}/>
+      <Title title={"Please Leave Feedback"} />
+      <Feedback/>
     </div>
   );
 };
