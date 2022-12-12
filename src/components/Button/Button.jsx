@@ -5,16 +5,16 @@ import style from "./Button.module.scss";
 
 
 export const Button = ({onPlus}) => (
-     <div className={style}>
-        <button className={style}
+     <div className={style.btnContainer}>
+        <button className={style.btnStatic}
             type="button" onClick={onPlus}>
             Good
         </button>
-        <button className={style}
+        <button className={style.btnStatic}
             type="button"  onClick={onPlus}>
             Neutral
         </button>
-        <button className={style}
+        <button className={style.btnStatic}
             type="button"  onClick={onPlus}>
             Bad
         </button>
@@ -23,5 +23,5 @@ export const Button = ({onPlus}) => (
 
 
 Button.propTypes = {
-
+    onPlus: PropTypes.func.isRequired
 }

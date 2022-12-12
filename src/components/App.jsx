@@ -1,16 +1,17 @@
 import { Title } from "./Title/Title";
 
 import { Feedback } from "./Feedback/Feedback";
+import { findByLabelText } from "@testing-library/react";
 
 export const App = () => {
   return (
     <div
       style={{
-        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        fontSize: 40,
         color: '#010101'
       }}
     >
