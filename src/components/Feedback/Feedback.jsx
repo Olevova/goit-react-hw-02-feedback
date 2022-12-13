@@ -1,54 +1,22 @@
 import React from "react";
-import { Button } from "../Button/Button";
-import { FeedbackAll, FeedbackNot, FeedbackValue } from "./Feedback.styled"
+import PropTypes from "prop-types";
+import style from "./Feedback.module.scss";
 
-export class Feedback extends React.Component{ 
 
-    state = {
-        good: 0,
-        neutral: 0,
-        bad: 0,
-    }
-
-    handleIncreament = (e) => {
-        // console.log(e.target.textContent);
-        const btnValue = e.target.textContent.toLowerCase();
-        this.setState(value => (
-            {
-                [btnValue]: value[btnValue] + 1
-        }       
-        ));
-        
-        // this.countPositiveFeedbackPercentage()
-    }
-
-    countTotalFeedback  = () => {
-        const arrayTotal = Object.values(this.state);
-        return arrayTotal.reduce((value, count) =>  value + count
-        )
-       
-    }
-
-    countPositiveFeedbackPercentage = () =>
-     Math.round((this.state.good / this.countTotalFeedback()) * 100)
-    
-
-    render() {
-        const { good, neutral, bad } = this.state;
-        return (
-            <div>
-                <Button onPlus={this.handleIncreament }/>
-                <FeedbackAll>Statistic</FeedbackAll>
-                {this.countTotalFeedback()>0 ? <>
-                    <FeedbackValue>Good : {good} </FeedbackValue>
-                    <FeedbackValue>Neutral : {neutral}</FeedbackValue>
-                    <FeedbackValue>Bad : {bad} </FeedbackValue>
-                    <FeedbackValue>Total : {this.countTotalFeedback()}</FeedbackValue>
-                    <FeedbackValue>Positive : {this.countPositiveFeedbackPercentage()}%</FeedbackValue>
-                    </> : <FeedbackNot>Not Feedback given</FeedbackNot> }
+export const FeedbackOptions  = ({options,onLeaveFeedback}) => (
+    <div className={style.btnContainer}>
+        {Object.keys(options).map((key) =>
+        <div key = {key}>
+        <button className={style.btnStatic}
+            type="button" onClick={() => onLeaveFeedback(key)}>
+            {key}
+                </button>
         </div>
-    )
-}
+        )}
+    </div>
+);
 
 
+FeedbackOptions.propTypes = {
+    onLeaveFeedback: PropTypes.func.isRequired
 }
