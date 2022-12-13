@@ -1,7 +1,7 @@
 import { Title } from "./Title/Title";
 
 import { Feedback } from "./Feedback/Feedback";
-import { findByLabelText } from "@testing-library/react";
+// import { findByLabelText } from "@testing-library/react";
 
 export const App = () => {
   return (
@@ -9,7 +9,6 @@ export const App = () => {
       style={{
         display: 'flex',
         flexDirection: 'column',
-        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         color: '#010101'
