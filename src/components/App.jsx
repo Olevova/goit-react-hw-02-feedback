@@ -2,6 +2,7 @@ import React from "react";
 import { Section } from "./Section/Section";
 import { Statistic } from "./Statistics/Statistics";
 import { FeedbackOptions } from "./Feedback/Feedback";
+import { Notification } from "./Notification/Notification";
 
 
 export class App extends React.Component {
@@ -32,6 +33,7 @@ export class App extends React.Component {
     
   render() {
     const { good, neutral, bad } = this.state;
+    const options = Object.keys(this.state);
     return (
       <div
         style={{
@@ -44,11 +46,11 @@ export class App extends React.Component {
       >
         <Section title={"Please Leave Feedback"}>
         <FeedbackOptions
-          options={this.state}
+          options={options}
           onLeaveFeedback={this.handleIncreament}
         />
         </Section>
-        {this.countTotalFeedback() <= 0 ? <p style={{}}>Not Feedback given</p> :
+        {this.countTotalFeedback() <= 0 ? <Notification message="Not Feedback given"/>:
         <>
         <Section title="Statistic">
         <Statistic 

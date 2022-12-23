@@ -4,8 +4,9 @@ import style from "./Feedback.module.scss";
 
 
 export const FeedbackOptions  = ({options,onLeaveFeedback}) => (
+    
     <div className={style.btnContainer}>
-        {Object.keys(options).map((key) =>
+        {options.map((key) =>
         <div key = {key}>
         <button className={style.btnStatic}
             type="button" onClick={() => onLeaveFeedback(key)}>
@@ -18,5 +19,6 @@ export const FeedbackOptions  = ({options,onLeaveFeedback}) => (
 
 
 FeedbackOptions.propTypes = {
-    onLeaveFeedback: PropTypes.func.isRequired
+    options: PropTypes.arrayOf(PropTypes.string).isRequired,
+    onLeaveFeedback: PropTypes.func.isRequired  
 }
